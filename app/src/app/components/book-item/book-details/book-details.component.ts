@@ -9,6 +9,7 @@ import { ChapterService } from 'src/app/services/chapter.service';
 })
 export class BookDetailsComponent implements OnInit {
 chapter;
+chapters;
   constructor(private activatedRoute: ActivatedRoute,
     private chapterService: ChapterService) { }
 
@@ -16,6 +17,8 @@ chapter;
     const idChapter = this.activatedRoute.snapshot.params['id'];
     const chapters = this.chapterService.chapters.slice();
     this.chapter = chapters.find(chapter => chapter.id == idChapter);
+    console.log(chapters[1].text, idChapter)
+    this.chapters = chapters;
   }
 
 }
