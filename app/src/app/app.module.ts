@@ -6,12 +6,20 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { LibraryComponent } from './components/library/library.component';
+import { LibraryOfOneCreatorComponent } from './components/library-of-one-creator/library-of-one-creator.component';
+import { BookItemComponent } from './components/book-item/book-item.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    LibraryComponent,
+    LibraryOfOneCreatorComponent,
+    BookItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
