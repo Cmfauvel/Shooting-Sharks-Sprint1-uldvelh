@@ -5,7 +5,7 @@ import { BookItemComponent } from './components/book-item/book-item.component';
 import { LibraryOfOneCreatorComponent } from './components/library-of-one-creator/library-of-one-creator.component';
 import { LibraryComponent } from './components/library/library.component';
 
-const routes: Routes = [{path: 'coin-lecture', component: LibraryComponent}, 
+const routes: Routes = [{path: 'coin-lecture', component: LibraryComponent},
 {path: 'biblio/nameCreator', component: LibraryOfOneCreatorComponent},
 {path: 'biblio/nameCreator/:idBook', component: BookItemComponent},
 {path: 'coin-lecture/:idBook', component: BookItemComponent},
