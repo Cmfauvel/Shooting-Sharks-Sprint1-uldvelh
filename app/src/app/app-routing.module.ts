@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LibraryOfOneCreatorComponent } from './components/library-of-one-creator/library-of-one-creator.component';
 import { LibraryComponent } from './components/library/library.component';
 
-const routes: Routes = [{path: 'library', component: LibraryComponent}];
+const routes: Routes = [{path: 'coin-lecture', component: LibraryComponent}, 
+{path: 'biblio/namecreator', component: LibraryOfOneCreatorComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
