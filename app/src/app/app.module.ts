@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LibraryComponent } from './components/library/library.component';
 import { LibraryOfOneCreatorComponent } from './components/library-of-one-creator/library-of-one-creator.component';
 import { BookItemComponent } from './components/book-item/book-item.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { BookItemComponent } from './components/book-item/book-item.component';
     NavbarComponent,
     LibraryComponent,
     LibraryOfOneCreatorComponent,
-    BookItemComponent
+    BookItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
