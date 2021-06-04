@@ -18,10 +18,10 @@ book;
     private bookService: BookService) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
+    const idBook = this.activatedRoute.snapshot.params['id'];
     this.chapters = this.chapterService.chapters.slice();
     const books = this.bookService.books.slice();
-    this.book = books.find(book => book.id == id);
+    this.book = books.find(book => book.id == idBook);
   }
 
 }

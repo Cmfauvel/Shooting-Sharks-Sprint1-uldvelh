@@ -13,9 +13,9 @@ chapter;
     private chapterService: ChapterService) { }
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
+    const idChapter = this.activatedRoute.snapshot.params['id'];
     const chapters = this.chapterService.chapters.slice();
-    this.chapter = chapters.find(chapter => chapter.id == id);
+    this.chapter = chapters.find(chapter => chapter.id == idChapter);
   }
 
 }

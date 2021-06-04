@@ -7,10 +7,10 @@ import { LibraryComponent } from './components/library/library.component';
 
 const routes: Routes = [{path: 'coin-lecture', component: LibraryComponent}, 
 {path: 'biblio/nameCreator', component: LibraryOfOneCreatorComponent},
-{path: 'biblio/nameCreator/:id', component: BookItemComponent},
-{path: 'coin-lecture/:id', component: BookItemComponent},
-{path: 'biblio/nameCreator/:id/:id', component: BookDetailsComponent},
-{path: 'biblio/nameCreator/:id/:id', component: BookDetailsComponent}];
+{path: 'biblio/nameCreator/:idBook', component: BookItemComponent},
+{path: 'coin-lecture/:idBook', component: BookItemComponent},
+{path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent},
+{path: 'biblio/nameCreator/:idBook/:idChapter', component: BookDetailsComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
