@@ -1,0 +1,14 @@
+<div class="container__main">
+    <h1>Titre du livre <small class="text-muted">/ nom du créateur</small></h1>
+<div class="card mb-3" *ngFor="let chapter of chapters">
+    <a [routerLink]="[chapter.id]">
+        <div class="card-body">
+            <!-- fonction click open-modal -->
+          <h5 class="card-title">Chapitre {{ chapter.id }}</h5>
+          <p class="card-text">{{ chapter.resume }}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </a>
+    
+  </div>
+</div>
