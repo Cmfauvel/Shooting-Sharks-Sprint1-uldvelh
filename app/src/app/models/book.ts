@@ -1,7 +1,8 @@
 export interface Book {
     id: number;
-    name: string;
+    title: string;
     nb_chapter: number;
+    resume: string;
     creator: string;
     type: string;
 }
