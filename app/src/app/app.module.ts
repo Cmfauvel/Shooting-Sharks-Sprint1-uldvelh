@@ -12,6 +12,11 @@ import { LibraryOfOneCreatorComponent } from './components/library-of-one-creato
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './components/book-item/book-details/book-details.component';
+import { CreateChaptersComponent } from './components/create-chapters/create-chapters.component';
+import {MatIconModule} from '@angular/material/icon';
+import { ChapterService } from './services/chapter.service';
+import { BookService } from './services/book.service';
+import { CreatorService } from './services/creator.service';
 
 @NgModule({
   declarations: [
@@ -23,14 +28,20 @@ import { BookDetailsComponent } from './components/book-item/book-details/book-d
     LibraryOfOneCreatorComponent,
     BookItemComponent,
     FooterComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CreateChaptersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    ChapterService,
+    BookService,
+    CreatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
