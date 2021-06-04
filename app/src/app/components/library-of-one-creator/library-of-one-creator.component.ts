@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Books } from 'src/app/models/mock-book';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
   selector: 'app-library-of-one-creator',
@@ -7,10 +7,11 @@ import { Books } from 'src/app/models/mock-book';
   styleUrls: ['./library-of-one-creator.component.scss']
 })
 export class LibraryOfOneCreatorComponent implements OnInit {
-  books = Books;
-  constructor() { }
+  books;
+
+  constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
+    this.books = this.bookService.books.slice();
   }
-
 }
