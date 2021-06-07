@@ -11,6 +11,10 @@ import { LibraryOfOneCreatorComponent } from './components/library-of-one-creato
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './components/book-item/book-details/book-details.component';
+import { HomeAuthorComponent } from './components/home-author/home-author.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -21,12 +25,15 @@ import { BookDetailsComponent } from './components/book-item/book-details/book-d
     LibraryOfOneCreatorComponent,
     BookItemComponent,
     FooterComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    HomeAuthorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,13 +4,15 @@ import { BookDetailsComponent } from './components/book-item/book-details/book-d
 import { BookItemComponent } from './components/book-item/book-item.component';
 import { LibraryOfOneCreatorComponent } from './components/library-of-one-creator/library-of-one-creator.component';
 import { LibraryComponent } from './components/library/library.component';
+import { HomeAuthorComponent } from './components/home-author/home-author.component';
 
 const routes: Routes = [{path: 'coin-lecture', component: LibraryComponent}, 
 {path: 'biblio/nameCreator', component: LibraryOfOneCreatorComponent},
 {path: 'biblio/nameCreator/:id', component: BookItemComponent},
 {path: 'coin-lecture/:id', component: BookItemComponent},
 {path: 'biblio/nameCreator/:id/:id', component: BookDetailsComponent},
-{path: 'biblio/nameCreator/:id/:id', component: BookDetailsComponent}];
+{path: 'biblio/nameCreator/:id/:id', component: BookDetailsComponent},
+{path: 'biblio/mon-espace-de-creation/', component: HomeAuthorComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
