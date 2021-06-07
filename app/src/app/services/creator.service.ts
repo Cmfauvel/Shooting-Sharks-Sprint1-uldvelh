@@ -4,6 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CreatorService {
-
+creators = [
+  {
+    id: 1,
+    name: "Toto",
+    nb_book: 1,
+    books: [{
+      title: "Livre 1"
+    }]
+  },
+  {
+    id: 2,
+    name: "Tata",
+    nb_book: 1,
+    books: [{
+      title: "Livre 2"
+    }]
+  }
+]
   constructor() { }
 }
