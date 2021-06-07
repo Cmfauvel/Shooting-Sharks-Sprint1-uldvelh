@@ -8,15 +8,18 @@ import { LibraryComponent } from './components/library/library.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
-const routes: Routes = [{ path: '', component: HomeComponent},
-{path: 'coin-lecture', component: LibraryComponent},
-{path: ':idCreator', component: LibraryOfOneCreatorComponent},
-{path: ':idCreator/:idBook', component: BookItemComponent},
-{path: 'coin-lecture/:idBook', component: BookItemComponent},
-{path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent},
-{path: ':idCreator/:idBook/:idChapter', component: BookDetailsComponent},
-{path: 'se-connecter', component: LoginComponent},
-{path: 's-inscrire', component: RegisterComponent}];
+const routes: Routes = [
+  {path: 'se-connecter', component: LoginComponent},
+  {path: 's-inscrire', component: RegisterComponent},
+  {path: '', component: HomeComponent},
+  {path: 'coin-lecture', component: LibraryComponent},
+  {path: ':idCreator', component: LibraryOfOneCreatorComponent},
+  {path: ':idCreator/:idBook', component: BookItemComponent},
+  {path: 'coin-lecture/:idBook', component: BookItemComponent},
+  {path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent},
+  {path: ':idCreator/:idBook/:idChapter', component: BookDetailsComponent}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
