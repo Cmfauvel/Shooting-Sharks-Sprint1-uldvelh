@@ -1,0 +1,12 @@
+.add-chap, .remove-chap{
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    :first-child{
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    p{
+        margin: 0;
+    }
+}

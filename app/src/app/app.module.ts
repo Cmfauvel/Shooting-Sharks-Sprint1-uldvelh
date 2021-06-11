@@ -17,6 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { ChapterService } from './services/chapter.service';
 import { BookService } from './services/book.service';
 import { CreatorService } from './services/creator.service';
+import { HeroMakerComponent } from './components/hero-maker/hero-maker.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CreatorService } from './services/creator.service';
     BookItemComponent,
     FooterComponent,
     BookDetailsComponent,
-    CreateChaptersComponent
+    CreateChaptersComponent,
+    HeroMakerComponent
   ],
   imports: [
     BrowserModule,
