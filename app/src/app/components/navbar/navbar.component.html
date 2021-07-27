@@ -20,12 +20,9 @@
           <a class="nav-link mode-player" routerLink="/coin-lecture">Coin lecture</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/hero">Hero</a>
+          <a class="nav-link" routerLink="/create" *ngIf="!isPlayerMode">Création</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/create">Création</a>
-        </li>
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Dropdown
@@ -38,14 +35,14 @@
             </li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+        </li> -->
       </ul>
       <form class="d-flex">
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (click)="switchMode()"/>
           <label class="form-check-label" for="flexSwitchCheckDefault">Player mode</label>
         </div>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
