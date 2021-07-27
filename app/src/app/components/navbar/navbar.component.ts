@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+isPlayerMode: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  switchMode() {
+    this.isPlayerMode = !this.isPlayerMode;
+    console.log(this.isPlayerMode)
   }
 
 }
