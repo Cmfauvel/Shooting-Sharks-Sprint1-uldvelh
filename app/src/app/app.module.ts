@@ -16,6 +16,12 @@ import { BookDetailsComponent } from './components/book-item/book-details/book-d
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CreateChaptersComponent } from './components/create-chapters/create-chapters.component';
+
+import { ChapterService } from './services/chapter.service';
+import { BookService } from './services/book.service';
+import { CreatorService } from './services/creator.service';
+import { HeroMakerComponent } from './components/hero-maker/hero-maker.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,9 @@ import { FormsModule } from '@angular/forms';
     LibraryOfOneCreatorComponent,
     BookItemComponent,
     FooterComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CreateChaptersComponent,
+    HeroMakerComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +45,13 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [
+    ChapterService,
+    BookService,
+    CreatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

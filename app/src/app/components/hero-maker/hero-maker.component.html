@@ -1,0 +1,31 @@
+<div class="container-fluid row justify-content-center">
+    <div *ngFor="let hero of heros">
+        <form class="form">
+            <div class="mb-3 col-6">
+              <label for="exampleInputText" class="form-label">Nom du livre :</label>
+              <input type="text" class="form-control" id="exampleInputText" aria-describedby="textHelp">
+            </div>
+            <div class="mb-3 col-6">
+                <label for="exampleInputText" class="form-label">Nom du héros :</label>
+                <input type="text" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="exampleInputText" class="form-label">Compétence du héros :</label>
+                <input type="text" class="form-control" id="exampleInputText2" aria-describedby="textHelp">
+              </div>
+          </form>
+    </div>
+    <div class="add-chap">
+        <span class="material-icons" (click)='addHero()'>
+            add_circle
+        </span>
+        <p>Add Heros</p>
+    </div>
+    <div class="remove-chap">
+        <span class="material-icons" (click)='deleteHero()'>
+            remove_circle
+        </span>
+        <p>Remove Heros</p>
+    </div>
+    <button type="submit" class="btn btn-primary col-2">Submit</button>
+</div>
