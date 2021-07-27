@@ -15,7 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BookDetailsComponent } from './components/book-item/book-details/book-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateChaptersComponent } from './components/add-book/create-chapters/create-chapters.component';
 
 import { ChapterService } from './services/chapter.service';
@@ -47,7 +47,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [
     ChapterService,
