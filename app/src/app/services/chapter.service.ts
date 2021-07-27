@@ -7,7 +7,6 @@ export class ChapterService {
 chapters = [
   {
       id: 1,
-<<<<<<< HEAD
       resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       idBook: 1,
       text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet mauris commodo quis imperdiet massa tincidunt nunc. Erat imperdiet sed euismod nisi porta lorem mollis. Neque volutpat ac tincidunt vitae semper quis lectus nulla. Sed arcu non odio euismod lacinia at quis risus. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper. Leo urna molestie at elementum. Nibh mauris cursus mattis molestie a iaculis at. Vitae nunc sed velit dignissim sodales ut eu. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Non enim praesent elementum facilisis leo vel fringilla est ullamcorper. Sit amet consectetur adipiscing elit duis tristique. Sed faucibus turpis in eu mi bibendum neque.
@@ -37,10 +36,6 @@ chapters = [
       Morbi tristique senectus et netus. Mauris vitae ultricies leo integer malesuada nunc vel. At quis risus sed vulputate odio ut. Imperdiet nulla malesuada pellentesque elit eget. Habitant morbi tristique senectus et netus et malesuada fames ac. Orci phasellus egestas tellus rutrum tellus pellentesque eu. Sit amet nisl purus in mollis nunc. Id eu nisl nunc mi ipsum faucibus vitae aliquet. Sit amet est placerat in egestas. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. Amet consectetur adipiscing elit duis tristique sollicitudin nibh. Libero enim sed faucibus turpis in eu. Sed nisi lacus sed viverra tellus.
       
       Tempor orci dapibus ultrices in iaculis nunc. Ipsum consequat nisl vel pretium. Consectetur libero id faucibus nisl tincidunt. Sed risus pretium quam vulputate dignissim suspendisse in est. Volutpat lacus laoreet non curabitur gravida arcu. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Enim sed faucibus turpis in eu mi. Pharetra diam sit amet nisl suscipit. Ipsum dolor sit amet consectetur adipiscing elit ut aliquam. Ut aliquam purus sit amet luctus venenatis. Cras sed felis eget velit aliquet sagittis id consectetur.`
-=======
-      resume: "ommodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      idBook: 0
->>>>>>> 5ab14d56cc32aa4031d4dab7215580507f860f73
   }
 ];
   constructor() { }
