@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,13 +9,25 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+loginForm: FormGroup;
   constructor(
     private authService: AuthService,
-    private router : Router
+    private router : Router,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.initConnexionForm();
+  }
+
+  initConnexionForm(): void {
+    this.loginForm = this.fb.group({
+      mail: this.fb.control('', [Validators.required, Validators.email]),
+      password: this.fb.control('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+    });
   }
 
   onSubmit(form: NgForm) {
