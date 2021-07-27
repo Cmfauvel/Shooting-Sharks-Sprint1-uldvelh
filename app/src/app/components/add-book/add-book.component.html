@@ -1,2 +1,19 @@
-<p>add-book works!</p>
-<button routerLink="addchapters">Ajouter des chapitres</button>
+<div class="mb-3">
+    <label for="title" class="form-label">Titre</label>
+    <textarea class="form-control" id="title" rows="1"></textarea>
+    <label for="Author" class="form-label">Auteur</label>
+    <textarea class="form-control" id="Author" rows="1"></textarea>
+    <label for="type" class="form-label">Type de livre</label>
+    <select class="form-select" name="pets" id="pet-select">
+      <option value="">Type de Livre</option>
+        <option value="HORROR">Horreur</option>
+        <option value="SCIFI">Science-fiction</option>
+        <option value="MEDFAN">Médiéval fantaisie</option>
+        <option value="CONTEMPORARY">Contemporain</option>
+        <option value="HEROIC_FANTASY">Héroique fantaisie</option>
+        <option value="DARK">Sombre</option>
+        <option value="FUN">fun</option>
+    </select>
+</div>
+
+<button class="btn btn-primary" routerLink="addchapters">Ajouter des chapitres</button>
