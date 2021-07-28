@@ -24,6 +24,7 @@ books = [
       type: "Convergent"
   }
 ];
+
 baseUrl : string = "";
   constructor(private http: HttpClient) { }
 
@@ -42,4 +43,5 @@ baseUrl : string = "";
   delete(id): Observable<any> {
     return this.http.delete<any>(this.baseUrl + "/delete/" + id)
   }
+  
 }

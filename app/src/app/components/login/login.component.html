@@ -2,8 +2,9 @@
   <h1>Connexion</h1>
   <form class="form-group formulaire"
         (ngSubmit)="onSubmit(loginForm)"
-        #loginForm="ngForm">
-    <label class="sr-only" for="inlineFormInputGroupUsername2">Email ou Username</label>
+        #loginForm="ngForm"
+        [formGroup]="loginForm">
+    <label class="sr-only" for="mail">Email</label>
     <div class="input-group mb-2 mr-sm-2">
       <div class="input-group-prepend">
         <div class="input-group-text">@</div>
@@ -12,20 +13,20 @@
             class="form-control"
             id="floatingInput"
             placeholder=""
-            name="email"
+            formControlName="mail"
             ngModel
             required>
     </div>
-    <label class="sr-only" for="inlineFormInputGroupUsername2">Password</label>
+    <label class="sr-only" for="password">Password</label>
     <div class="input-group mb-2 mr-sm-2">
       <div class="input-group-prepend">
-        <div class="input-group-text">@</div>
+        <div class="input-group-text">*</div>
       </div>
       <input type="password"
               class="form-control"
               id="floatingPassword"
               placeholder=""
-              name="password"
+              formControlName="password"
               ngModel
               required>
     </div>
@@ -37,6 +38,7 @@
     </div>
     <button class="w-100 btn btn-lg btn-primary"
     type="submit"
+    (click)="onSubmit(loginForm)"
     [disabled]="loginForm.invalid">Se Connecter</button>
     <p class="linkRegister">Pas encore inscrit? <a href="../register/register.component.html">Inscrivez-vous ici</a></p>
   </form>

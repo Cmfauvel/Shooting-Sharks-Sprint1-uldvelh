@@ -23,6 +23,7 @@ import { BookService } from './services/book.service';
 import { CreatorService } from './services/creator.service';
 import { HeroMakerComponent } from './components/hero-maker/hero-maker.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     BookDetailsComponent,
     CreateChaptersComponent,
     HeroMakerComponent,
-    AddBookComponent
+    AddBookComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -47,13 +49,16 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    MatIconModule,
     ReactiveFormsModule
   ],
   providers: [
     ChapterService,
     BookService,
     CreatorService
+  ],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

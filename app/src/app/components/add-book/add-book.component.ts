@@ -31,6 +31,7 @@ export class AddBookComponent implements OnInit {
 
   OnSubmit(){
     console.log(this.bookForm.value);
+    this.bookService.create(this.bookForm.value);
   }
   
 }
