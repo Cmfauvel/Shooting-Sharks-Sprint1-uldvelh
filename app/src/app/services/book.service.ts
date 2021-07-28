@@ -24,22 +24,30 @@ books = [
       type: "Convergent"
   }
 ];
-baseUrl : string = "";
+baseUrl : string = "api/books";
   constructor(private http: HttpClient) { }
 
   create(object): Observable<any> {
     return this.http.post<any>(this.baseUrl, object)
   }
 
-  modify(newValues): Observable<any> {
-    return this.http.put<any>(this.baseUrl + "/update", newValues)
+  modify(idBook, newValues): Observable<any> {
+    return this.http.put<any>(this.baseUrl + "/" + idBook + "/update", newValues)
   }
 
   select(id): Observable<any> {
     return this.http.get<any>(this.baseUrl + "/" + id)
   }
 
+  selectAll(user): Observable<any> {
+    return this.http.get<any>(this.baseUrl + "/" + user)
+  }
+
+  selectBooksOfOneCreator(creator): Observable<any> {
+    return this.http.get<any>(this.baseUrl + '/' + creator)
+  }
+
   delete(id): Observable<any> {
-    return this.http.delete<any>(this.baseUrl + "/delete/" + id)
+    return this.http.delete<any>(this.baseUrl + "/" + id +"/delete")
   }
 }

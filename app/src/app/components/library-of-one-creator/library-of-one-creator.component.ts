@@ -11,13 +11,19 @@ import { CreatorService } from 'src/app/services/creator.service';
 export class LibraryOfOneCreatorComponent implements OnInit {
   books;
   creator;
+  idCreator;
 
   constructor(private bookService: BookService, private activatedRoute: ActivatedRoute, private creatorService: CreatorService) { }
 
   ngOnInit(): void {
     this.books = this.bookService.books.slice();
-    const idCreator = this.activatedRoute.snapshot.params['id'];
+    this.idCreator = this.activatedRoute.snapshot.params['id'];
+      this.bookService.selectBooksOfOneCreator(this.idCreator).subscribe((response) => {
+        this.books = response
+      })
     const creators = this.creatorService.creators.slice();
-    this.creator = creators.find(creator => creator.id == idCreator);
+    this.creator = creators.find(creator => creator.id == this.idCreator);
   }
+
+  
 }
