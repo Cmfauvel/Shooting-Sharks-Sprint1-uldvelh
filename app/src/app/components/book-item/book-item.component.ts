@@ -20,6 +20,9 @@ book;
   ngOnInit(): void {
     const idBook = this.activatedRoute.snapshot.params['id'];
     this.chapters = this.chapterService.chapters.slice();
+    this.chapterService.selectAll(idBook).subscribe((response) => {
+      this.chapters = response;
+    })
     const books = this.bookService.books.slice();
     this.book = books.find(book => book.id == idBook);
   }

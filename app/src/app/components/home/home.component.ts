@@ -12,6 +12,9 @@ creators;
 
   ngOnInit(): void {
     this.creators = this.creatorService.creators.slice();
+    this.creatorService.selectAll().subscribe((response) => {
+      this.creators = response;
+    })
   }
 
 }

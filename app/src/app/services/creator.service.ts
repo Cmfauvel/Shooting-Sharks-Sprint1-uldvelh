@@ -29,22 +29,26 @@ creators = [
     username: "Charles"
   },
 ]
-baseUrl : string = "";
+baseUrl : string = "api/creators";
 constructor(private http: HttpClient) { }
 
-create(object): Observable<any> {
-  return this.http.post<any>(this.baseUrl, object)
-}
+// create(object): Observable<any> {
+//   return this.http.post<any>(this.baseUrl, object)
+// }
 
-modify(newValues): Observable<any> {
-  return this.http.put<any>(this.baseUrl + "/update", newValues)
-}
+// modify(newValues): Observable<any> {
+//   return this.http.put<any>(this.baseUrl + "/update", newValues)
+// }
 
 select(id): Observable<any> {
   return this.http.get<any>(this.baseUrl + "/" + id)
 }
 
-delete(id): Observable<any> {
-  return this.http.delete<any>(this.baseUrl + "/delete/" + id)
+selectAll(): Observable<any> {
+  return this.http.get<any>(this.baseUrl)
 }
+
+// delete(id): Observable<any> {
+//   return this.http.delete<any>(this.baseUrl + "/delete/" + id)
+// }
 }

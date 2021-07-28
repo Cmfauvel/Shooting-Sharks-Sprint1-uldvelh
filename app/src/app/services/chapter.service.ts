@@ -55,6 +55,10 @@ select(id): Observable<any> {
   return this.http.get<any>(this.baseUrl + "/" + id)
 }
 
+selectAll(idBook): Observable<any> {
+  return this.http.get<any>(this.baseUrl + "/" + idBook)
+}
+
 delete(id): Observable<any> {
   return this.http.delete<any>(this.baseUrl + "/delete/" + id)
 }
