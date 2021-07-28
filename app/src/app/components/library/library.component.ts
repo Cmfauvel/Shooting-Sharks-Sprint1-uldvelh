@@ -7,13 +7,16 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent implements OnInit {
-
+idUser;
 books;
 
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
     this.books = this.bookService.books.slice();
+    this.bookService.selectAll(this.idUser).subscribe((response) => {
+      this.books = response;
+    })
   }
 
 }

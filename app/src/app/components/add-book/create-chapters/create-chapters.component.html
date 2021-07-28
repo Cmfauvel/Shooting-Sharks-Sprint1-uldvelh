@@ -1,10 +1,10 @@
 <form [formGroup]="chapterForm" (ngSubmit)="OnSubmit()">
     <div *ngFor="let chapter of chapters">
         <h2>Chapter {{chapter.id}}</h2>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
     </div>
     <div class="div-btn">
         <div class="add-chap">
