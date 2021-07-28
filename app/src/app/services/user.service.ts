@@ -5,23 +5,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class HeroService {
-  heros = [
-    {
-      id: 1,
-      name: "",
-      competence: ""
-    }
-  ];
-  baseUrl : string = "api/heroes";
+export class UserService {
+  baseUrl: string = "api/users";
   constructor(private http: HttpClient) { }
 
   create(object): Observable<any> {
     return this.http.post<any>(this.baseUrl + "/create", object)
   }
 
-  modify(idHero, newValues): Observable<any> {
-    return this.http.put<any>(this.baseUrl + "/" + idHero +"/update", newValues)
+  modify(idUser, newValues): Observable<any> {
+    return this.http.put<any>(this.baseUrl + "/" + idUser +"/update", newValues)
   }
 
   select(id): Observable<any> {
