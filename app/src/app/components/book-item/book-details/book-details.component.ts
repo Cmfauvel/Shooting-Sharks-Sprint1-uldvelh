@@ -16,6 +16,9 @@ chapters;
 
   ngOnInit(): void {
     const idChapter = this.activatedRoute.snapshot.params['idChapter'];
+    this.chapterService.select(idChapter).subscribe((response) => {
+      this.content = response.text;
+    })
     this.chapters = this.chapterService.chapters.slice();
     this.content = this.chapters[idChapter - 1].text;
   }

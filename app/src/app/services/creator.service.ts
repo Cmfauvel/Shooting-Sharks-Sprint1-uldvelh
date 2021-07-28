@@ -29,7 +29,7 @@ creators = [
     username: "Charles"
   },
 ]
-baseUrl : string = "";
+baseUrl : string = "api/creators";
 constructor(private http: HttpClient) { }
 
 // create(object): Observable<any> {
@@ -42,6 +42,10 @@ constructor(private http: HttpClient) { }
 
 select(id): Observable<any> {
   return this.http.get<any>(this.baseUrl + "/" + id)
+}
+
+selectAll(): Observable<any> {
+  return this.http.get<any>(this.baseUrl)
 }
 
 // delete(id): Observable<any> {
