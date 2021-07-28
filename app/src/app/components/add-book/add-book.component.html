@@ -1,2 +1,23 @@
-<p>add-book works!</p>
-<button routerLink="addchapters">Ajouter des chapitres</button>
+<div class="mb-3">
+    <form [formGroup]="bookForm" (ngSubmit)="OnSubmit()">
+        <label for="title" class="form-label">Titre</label>
+        <input class="form-control" type="text" id="title" formControlName="title">
+        <label for="Author" class="form-label">Auteur</label>
+        <input class="form-control" type="text" id="Author" formControlName="author">
+        <label for="type" class="form-label">Type de livre</label>
+        <select class="form-select" formControlName="type" multiple>
+            <option value="">Type de Livre</option>
+            <option value="HORROR">Horreur</option>
+            <option value="SCIFI">Science-fiction</option>
+            <option value="MEDFAN">Médiéval fantaisie</option>
+            <option value="CONTEMPORARY">Contemporain</option>
+            <option value="HEROIC_FANTASY">Héroique fantaisie</option>
+            <option value="DARK">Sombre</option>
+            <option value="FUN">fun</option>
+        </select>
+        <button class="btn btn-primary" type="submit" [disabled]="bookForm.invalid">Créer un livre</button>
+    </form>
+</div>
+
+
+<button class="btn btn-primary" routerLink="addchapters">Ajouter des chapitres</button>

@@ -50,4 +50,5 @@ baseUrl : string = "api/books";
   delete(id): Observable<any> {
     return this.http.delete<any>(this.baseUrl + "/" + id +"/delete")
   }
+  
 }
