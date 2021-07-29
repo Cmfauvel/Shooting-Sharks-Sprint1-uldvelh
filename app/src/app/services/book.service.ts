@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Book } from '../models/book';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +25,11 @@ books = [
       type: "Convergent"
   }
 ];
-baseUrl : string = "api/books";
+baseUrl : string = "http://localhost:8020/api/book";
   constructor(private http: HttpClient) { }
 
   create(object): Observable<any> {
-    return this.http.post<any>(this.baseUrl, object)
+    return this.http.post<Book>(this.baseUrl, object)
   }
 
   modify(idBook, newValues): Observable<any> {

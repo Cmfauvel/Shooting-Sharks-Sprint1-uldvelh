@@ -24,6 +24,7 @@ import { CreatorService } from './services/creator.service';
 import { HeroMakerComponent } from './components/hero-maker/hero-maker.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ParamBookComponent } from './components/param-book/param-book.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RegisterComponent } from './components/register/register.component';
     CreateChaptersComponent,
     HeroMakerComponent,
     AddBookComponent,
-    RegisterComponent
+    RegisterComponent,
+    ParamBookComponent
   ],
   imports: [
     BrowserModule,
