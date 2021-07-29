@@ -10,6 +10,7 @@ import { LibraryComponent } from './components/library/library.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { ParamBookComponent } from './components/param-book/param-book.component';
 
 const routes: Routes = [
   {path: 'se-connecter', component: LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'create', component: AddBookComponent},
   {path: 'coin-lecture', component: LibraryComponent},
+  {path: 'mybookscreated/:idBook', component: ParamBookComponent},
   {path: 'create/addchapters', component: CreateChaptersComponent},
   {path: 'hero', component: HeroMakerComponent},
   {path: ':idCreator', component: LibraryOfOneCreatorComponent},

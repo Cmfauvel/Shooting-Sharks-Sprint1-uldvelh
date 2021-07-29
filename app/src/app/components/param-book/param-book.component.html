@@ -1,0 +1,58 @@
+<p>param-book works!</p>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Paramétrer la fin du chapitre</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="question">Question</label>
+          <div class="input-group">
+            <input id="" class="form-control" formControlName="question" placeholder="Ecrivez votre question" name="dp">
+          </div>
+          <label for="answer1">Réponse n°1</label>
+          <div class="input-group">
+            <input id="" class="form-control" formControlName="answer2" placeholder="Ecrivez une réponse" name="dp">
+          </div>
+          <label for="chapter" class="form-label">Chapitre</label>
+        <select class="form-select" formControlName="chapterChoice1">
+            <option *ngFor="let chapter of chapters" value="chapter.id">{{ chapter.id }}</option>
+        </select>
+          <label for="answer2">Réponse n°2</label>
+          <div class="input-group" >
+            <input id="" class="form-control" formControlName="answer2" placeholder="Ecrivez une réponse" name="dp">
+          </div>
+          <select class="form-select" formControlName="chapterChoice2">
+            <option *ngFor="let chapter of chapters" value="chapter.id">{{ chapter.id }}</option>
+        </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  <div class="container">
+    <h1>Titre du livre <small class="text-muted">/ nom du créateur</small></h1>
+<div class="card mb-3" *ngFor="let chapter of chapters">
+    <a [routerLink]="[chapter.id]">
+        <div class="card-body">
+            <!-- fonction click open-modal -->
+          <h5 class="card-title">Chapitre {{ chapter.id }}</h5>
+          <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Param</button>
+          <!-- <p class="card-text">{{ chapter.resume }}</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+        </div>
+    </a>
+    
+  </div>
+</div>
+  
+  
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>
