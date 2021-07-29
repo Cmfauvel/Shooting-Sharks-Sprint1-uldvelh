@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Book } from '../models/book';
+import { Books } from '../models/mock-books';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +31,7 @@ baseUrl : string = "http://localhost:8020/api/book";
   constructor(private http: HttpClient) { }
 
   create(object): Observable<any> {
-    return this.http.post<Book>(this.baseUrl, object)
+    return this.http.post<Book>(this.baseUrl + "/create", object)
   }
 
   modify(idBook, newValues): Observable<any> {
@@ -40,8 +42,12 @@ baseUrl : string = "http://localhost:8020/api/book";
     return this.http.get<any>(this.baseUrl + "/" + id)
   }
 
-  selectAll(user): Observable<any> {
+  selectAllByUser(user): Observable<any> {
     return this.http.get<any>(this.baseUrl + "/" + user)
+  }
+
+  selectAll(): Observable<any> {
+    return this.http.get<Book>(this.baseUrl);
   }
 
   selectBooksOfOneCreator(creator): Observable<any> {

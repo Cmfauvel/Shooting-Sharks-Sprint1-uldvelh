@@ -20,4 +20,8 @@ currentUser;
     console.log(this.isPlayerMode)
   }
 
+  logout() {
+    this.auth.logout();
+  }
+
 }

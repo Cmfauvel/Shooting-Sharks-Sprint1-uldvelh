@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl: string = "api/users";
+  baseUrl: string = "http://localhost:8020/api";
   constructor(private http: HttpClient) { }
 
   create(object): Observable<any> {
@@ -19,6 +19,10 @@ export class UserService {
 
   select(id): Observable<any> {
     return this.http.get<any>(this.baseUrl + "/" + id)
+  }
+
+  selectAll(): Observable<any> {
+    return this.http.get<any>(this.baseUrl + "/users")
   }
 
   delete(id): Observable<any> {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CreatorService } from 'src/app/services/creator.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,16 @@ import { CreatorService } from 'src/app/services/creator.service';
 })
 export class HomeComponent implements OnInit {
 creators;
-  constructor(private creatorService: CreatorService) { }
+users;
+  constructor(private creatorService: CreatorService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.creators = this.creatorService.creators.slice();
-    this.creatorService.selectAll().subscribe((response) => {
-      this.creators = response;
+    this.userService.selectAll().subscribe((response) => {
+      this.users = response;
     })
+
+
   }
 
 }

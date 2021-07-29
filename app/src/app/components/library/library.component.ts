@@ -13,9 +13,10 @@ books;
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
-    this.books = this.bookService.books.slice();
-    this.bookService.selectAll(this.idUser).subscribe((response) => {
+    // this.books = this.bookService.books.slice();
+    this.bookService.selectAll().subscribe((response) => {
       this.books = response;
+      console.log(response)
     })
   }
 

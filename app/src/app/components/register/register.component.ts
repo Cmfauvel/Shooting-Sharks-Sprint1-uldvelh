@@ -37,6 +37,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
     console.log(this.registerForm.value)
+    const user = {
+      username: this.registerForm.value.pseudo,
+      email: this.registerForm.value.mail,
+      role: ["USER"],
+      password: this.registerForm.value.password
+    }
+    console.log(user)
+
+    this.auth.register(user).subscribe((response) => console.log(response))
   }
 
   

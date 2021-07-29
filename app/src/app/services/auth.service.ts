@@ -10,24 +10,24 @@ import { User } from '../models/user';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  baseUrl: string = "https://test-node-jb.herokuapp.com/api"
+  baseUrl: string = "http://localhost:8020/api/auth"
   
   constructor(private httpClient: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(null);
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  login(email: string, password: string): Observable<any> {
-    const body = {
-      email,
-      password
-    }
-    return this.httpClient.post(this.baseUrl + '/auth/login', body)
+  login(body): Observable<any> {
+    // const body = {
+    //   email,
+    //   password
+    // }
+    return this.httpClient.post<User>(this.baseUrl + '/login', body)
       .pipe(
         map(
           (resp: any) => {
-            localStorage.setItem('TOKEN_APPLI', resp.token);
-            console.log('Token Save');
+            localStorage.setItem('TOKEN_APPLI', resp.accessToken);
+            console.log('Token Save', resp.accessToken);
             return resp;
           }
         )
@@ -35,12 +35,12 @@ export class AuthService {
   }
 
   register(user): Observable<any> {
-    return this.httpClient.post(this.baseUrl + '/auth/register', user)
+    return this.httpClient.post<User>(this.baseUrl + '/register', user)
   }
 
   checkAuthentication(token) {
     token = localStorage.getItem('TOKEN_APPLI')
-    return this.httpClient.get(this.baseUrl + '/auth/checkAuthentication', token)
+    return this.httpClient.get<User>(this.baseUrl + '/auth/checkAuthentication', token)
   }
 
   logout() {

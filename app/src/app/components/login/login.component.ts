@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -27,12 +28,18 @@ loginForm: FormGroup;
         Validators.required,
         Validators.minLength(8),
       ]),
+      pseudo: this.fb.control('', [Validators.required])
     });
   }
 
-  onSubmit(form: NgForm) {
-    console.log(form.value);
-    this.authService.login(form.value.email, form.value.password).subscribe(
+  onSubmit() {
+    const user = {
+      email: this.loginForm.value.mail,
+      username: this.loginForm.value.pseudo,
+      password: this.loginForm.value.password,
+    }
+    console.log(user);
+    this.authService.login(user).subscribe(
       (resp: any) => {
         console.log("Connection succeed", resp);
         this.router.navigate(['/']);
