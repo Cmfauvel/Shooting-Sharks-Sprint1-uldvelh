@@ -46,4 +46,21 @@ export class ParamBookComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+  getColor(chapter){
+    const equals = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+    const a = chapter.before;
+    const b = chapter.after;
+    const x = []
+
+    if(equals(a,x) && equals(b,x)){ // chapitre innaccessible et sans suite
+      return "red"
+    } else if(equals(a,x) == false && equals(b,x)) {  // chapitre accessible, sans suite
+      return "orange"
+    } else if(equals(a,x) && equals(b,x) == false){  // chapitre inaccessible, avec une suite
+      return "yellow"
+    } else if(equals(a,x) == false && equals(b,x) == false){ // chapitre accessible, avec une suite
+      return "green"
+    } else {console.log("this was not suppose to append")}
+  }
 }

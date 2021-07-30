@@ -41,7 +41,7 @@ import { ParamBookComponent } from './components/param-book/param-book.component
     HeroMakerComponent,
     AddBookComponent,
     RegisterComponent,
-    ParamBookComponent
+    ParamBookComponent,
   ],
   imports: [
     BrowserModule,
