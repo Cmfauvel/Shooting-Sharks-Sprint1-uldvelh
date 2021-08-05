@@ -2,8 +2,6 @@
     <form [formGroup]="bookForm" (ngSubmit)="OnSubmit()">
         <label for="title" class="form-label">Titre</label>
         <input class="form-control" type="text" id="title" formControlName="title">
-        <label for="Author" class="form-label">Auteur</label>
-        <input class="form-control" type="text" id="Author" formControlName="author">
         <label for="type" class="form-label">Type de livre</label>
         <select class="form-select" formControlName="type" multiple>
             <option value="">Type de Livre</option>

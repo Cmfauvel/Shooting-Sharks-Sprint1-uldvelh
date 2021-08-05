@@ -14,9 +14,9 @@ users;
 
   ngOnInit(): void {
     this.creators = this.creatorService.creators.slice();
-    this.userService.selectAll().subscribe((response) => {
-      this.users = response;
-    })
+    // this.userService.selectAll().subscribe((response) => {
+    //   this.users = response;
+    // })
 
 
   }

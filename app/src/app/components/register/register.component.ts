@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { Library } from 'src/app/models/library';
 import { AuthService } from 'src/app/services/auth.service';
+import { LibraryService } from 'src/app/services/library.service';
 
 @Component({
   selector: 'app-register',
@@ -8,13 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   registerForm: FormGroup;
+  librarySub: Subscription;
 
   constructor(private auth: AuthService,
-    private fb: FormBuilder) { 
-      // this.registerForm = new FormGroup({});
-    }
+    private fb: FormBuilder) {
+    // this.registerForm = new FormGroup({});
+  }
 
   ngOnInit(): void {
     this.initRegisterForm();
@@ -35,19 +38,18 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit(){
-    console.log(this.registerForm.value)
-    const user = {
-      username: this.registerForm.value.pseudo,
-      email: this.registerForm.value.mail,
-      role: ["USER"],
-      password: this.registerForm.value.password
+  onSubmit() {
+    try {
+      const user = {
+        username: this.registerForm.value.pseudo,
+        email: this.registerForm.value.mail,
+        role: ["USER"],
+        password: this.registerForm.value.password
+      }
+      this.auth.register(user).subscribe((response) => console.log(response));
+    } catch {
+      console.log("__Error handled gracefully.")
     }
-    console.log(user)
 
-    this.auth.register(user).subscribe((response) => console.log(response))
   }
-
-  
-
 }
