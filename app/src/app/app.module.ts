@@ -41,7 +41,7 @@ import { RegisterComponent } from './components/register/register.component';
     HeroMakerComponent,
     AddBookComponent,
     RegisterComponent,
-    ParamBookComponent
+    ParamBookComponent,
   ],
   imports: [
     BrowserModule,

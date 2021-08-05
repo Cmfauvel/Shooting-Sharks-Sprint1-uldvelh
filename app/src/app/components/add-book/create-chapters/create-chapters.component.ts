@@ -26,18 +26,19 @@ export class CreateChaptersComponent implements OnInit {
   initForm(){
     this.chapterForm = new FormGroup ({
       title: new FormControl('', Validators.required),
-      author: new FormControl('', Validators.required),
+      resume: new FormControl('', Validators.required),
+      content: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required)
     })
   }
 
-  addChapters() {
-    this.chapters.push({
-      id: this.chapters.length +1,
-      resume:'',
-      idBook: 0
-    })
-  }
+  //addChapters() {
+  //  this.chapters.push({
+  //    id: this.chapters.length +1,
+  //    resume:'',
+  //    idBook: 0
+  //  })
+  //}
 
   OnSubmit(){
     console.log(this.chapterForm.value);
