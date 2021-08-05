@@ -3,4 +3,5 @@ export interface User {
     email: string;
     password: string;
     username: string;
+    library_id?: number;
 }
