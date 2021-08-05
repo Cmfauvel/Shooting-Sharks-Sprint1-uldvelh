@@ -1,14 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Book } from '../models/book';
 import { Books } from '../models/mock-books';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     "Authorization": this.auth.checkAuthentication() || ''
+  //   })
+  // };
 books = [
   {
       id: 1,
@@ -28,7 +34,7 @@ books = [
   }
 ];
 baseUrl : string = "http://localhost:8020/api/book";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   create(object): Observable<any> {
     return this.http.post<Book>(this.baseUrl + "/create", object)

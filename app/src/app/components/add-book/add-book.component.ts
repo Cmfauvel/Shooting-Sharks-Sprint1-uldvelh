@@ -13,6 +13,7 @@ import { BookService } from 'src/app/services/book.service';
 })
 export class AddBookComponent implements OnInit {
   currentUser: User;
+  currentUserId;
   bookForm?:FormGroup;
 
   constructor(private bookService: BookService, 
@@ -23,6 +24,7 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.currentUserId = this.auth.getUserId();
     this.auth.currentUser.subscribe((resp) => {
       console.log(resp)
       this.currentUser = resp;
@@ -40,7 +42,7 @@ export class AddBookComponent implements OnInit {
     const book = {
       title: this.bookForm.value.title,
       type: this.bookForm.value.type,
-      user_id: this.currentUser.id
+      user_id: this.currentUserId
     }
     console.log(this.bookForm.value);
     this.bookService.create(book).subscribe((response) => {
