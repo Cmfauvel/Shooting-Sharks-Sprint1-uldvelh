@@ -13,8 +13,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { ParamBookComponent } from './components/param-book/param-book.component';
 
 const routes: Routes = [
-  {path: 'se-connecter', component: LoginComponent},
-  {path: 's-inscrire', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '', component: HomeComponent},
   {path: 'create', component: AddBookComponent},
   {path: 'coin-lecture', component: LibraryComponent},
