@@ -11,15 +11,20 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { ParamBookComponent } from './components/param-book/param-book.component';
+import { BooksComponent } from './components/books/books.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: '', component: HomeComponent},
   {path: 'create', component: AddBookComponent},
+  {path: 'book', component: BooksComponent,
+  children:[
+    {path: ':id', component: BookDetailsComponent}, 
+    {path: ':id/chapter', component: CreateChaptersComponent},
+  ]},
   {path: 'coin-lecture', component: LibraryComponent},
   {path: 'mybookscreated/:idBook', component: ParamBookComponent},
-  {path: 'create/addchapters', component: CreateChaptersComponent},
   {path: 'hero', component: HeroMakerComponent},
   {path: ':idCreator', component: LibraryOfOneCreatorComponent},
   {path: ':idCreator/:idBook', component: BookItemComponent},
@@ -27,8 +32,7 @@ const routes: Routes = [
   {path: 'biblio/nameCreator', component: LibraryOfOneCreatorComponent},
   {path: 'biblio/nameCreator/:idBook', component: BookItemComponent},
   {path: 'coin-lecture/:idBook', component: BookItemComponent},
-  {path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent},
-  {path: 'biblio/nameCreator/:idBook/:idChapter', component: BookDetailsComponent},
+  {path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent}
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Book } from '../models/book';
+import { Chapter } from '../models/chapter';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,11 @@ baseUrl : string = "http://localhost:8020/api";
 
   getBookById(id:number) {
     return this.httpClient.get<Book>(`${this.baseUrl}/book/${id}`);
+  }
+
+  addChapterInBook(id:number, chapter:Chapter) {
+    const body = {}
+    return this.httpClient.post<Chapter>(`${this.baseUrl}/book/${id}/chapter`, chapter);
   }
 
   create(object): Observable<any> {

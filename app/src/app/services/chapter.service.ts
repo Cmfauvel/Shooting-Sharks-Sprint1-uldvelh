@@ -58,7 +58,7 @@ chapters = [
     after: []
  }
 ];
-baseUrl : string = "";
+baseUrl : string = "http://localhost:8020/api/book";
 constructor(private http: HttpClient) { }
 
 create(object): Observable<any> {
