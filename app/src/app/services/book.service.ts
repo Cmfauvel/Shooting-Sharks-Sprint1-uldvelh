@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Book } from '../models/book';
-import { Books } from '../models/mock-books';
 
 @Injectable({
   providedIn: 'root'
@@ -27,35 +26,48 @@ books = [
       type: "Convergent"
   }
 ];
-baseUrl : string = "http://localhost:8020/api/book";
-  constructor(private http: HttpClient) { }
+baseUrl : string = "http://localhost:8020/api";
+  constructor(private httpClient: HttpClient) { }
+
+  addBook(book:Book) {
+    const body = {}
+    return this.httpClient.post<Book>(`${this.baseUrl}/book/create`, book);
+  }
+
+  getBooks() {
+    return this.httpClient.get<Array<Book>>(`${this.baseUrl}/book`);
+  }
+
+  getBookById(id:number) {
+    return this.httpClient.get<Book>(`${this.baseUrl}/book/${id}`);
+  }
 
   create(object): Observable<any> {
-    return this.http.post<Book>(this.baseUrl + "/create", object)
+    return this.httpClient.post<Book>(this.baseUrl + "/create", object)
   }
 
   modify(idBook, newValues): Observable<any> {
-    return this.http.put<any>(this.baseUrl + "/" + idBook + "/update", newValues)
+    return this.httpClient.put<any>(this.baseUrl + "/" + idBook + "/update", newValues)
   }
 
   select(id): Observable<any> {
-    return this.http.get<any>(this.baseUrl + "/" + id)
+    return this.httpClient.get<any>(this.baseUrl + "/" + id)
   }
 
   selectAllByUser(user): Observable<any> {
-    return this.http.get<any>(this.baseUrl + "/" + user)
+    return this.httpClient.get<any>(this.baseUrl + "/" + user)
   }
 
   selectAll(): Observable<any> {
-    return this.http.get<Book>(this.baseUrl);
+    return this.httpClient.get<Book>(this.baseUrl);
   }
 
   selectBooksOfOneCreator(creator): Observable<any> {
-    return this.http.get<any>(this.baseUrl + '/' + creator)
+    return this.httpClient.get<any>(this.baseUrl + '/' + creator)
   }
 
   delete(id): Observable<any> {
-    return this.http.delete<any>(this.baseUrl + "/" + id +"/delete")
+    return this.httpClient.delete<any>(this.baseUrl + "/" + id +"/delete")
   }
   
 }

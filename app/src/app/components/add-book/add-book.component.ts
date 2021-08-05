@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
 
 
@@ -12,6 +13,7 @@ import { BookService } from 'src/app/services/book.service';
 export class AddBookComponent implements OnInit {
 
   bookForm?:FormGroup;
+  bookList?: Book[];
 
   constructor(private bookService: BookService, private router : Router) {
     this.bookForm = new FormGroup({})
@@ -19,21 +21,42 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.bookService.getBooks().subscribe(
+      (books:Array<Book>) => {
+        this.bookList = books;
+        console.log(this.bookList); 
+      }
+    )
   }
 
   initForm(){
     this.bookForm = new FormGroup ({
       title: new FormControl('', Validators.required),
-      author: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required)
     })
+
   }
 
   OnSubmit(){
     console.log(this.bookForm.value);
-    this.bookService.create(this.bookForm.value).subscribe((response) => {
-      console.log(response)
-    })
+    const book = {
+      
+    }
+    this.bookService.addBook(this.bookForm.value).subscribe(
+      (resp: any) => {
+        console.log("Connection succeed", resp);
+        this.bookService.getBooks().subscribe(
+          (books:Array<Book>) => {
+            this.bookList = books;  
+            console.log(this.bookList);
+              
+          }
+        )
+      },
+      (error: any) => {
+        console.log('error while');
+      }
+    )
   }
   
 }
