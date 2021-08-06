@@ -52,7 +52,7 @@ export class AddBookComponent implements OnInit {
       user_id: this.currentUserId
     }
     console.log(this.bookForm.value);
-    this.bookService.addBook(this.bookForm.value).subscribe(
+    this.bookService.addBook(book).subscribe(
       (resp: any) => {
         console.log("Connection succeed", resp);
         this.bookService.getBooks().subscribe(
