@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JwtHelperService } from "@auth0/angular-jwt";
+// import { decode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
@@ -33,18 +35,38 @@ export class AuthService {
       );
   }
 
+  getUserId(){
+   
+
+const helper = new JwtHelperService();
+
+const decodedToken = helper.decodeToken(this.getToken());
+// const expirationDate = helper.getTokenExpirationDate(this.getToken());
+// const isExpired = helper.isTokenExpired(this.getToken());
+console.log(decodedToken);
+const id = parseInt(decodedToken.sub);
+console.log(id)
+return id;
+  }
+
   register(user): Observable<User> {
     return this.httpClient.post<User>(this.baseUrl + '/register', user)
   }
 
-  checkAuthentication(){
+  getToken(){
     const token =localStorage.getItem('TOKEN_APPLI')
     console.log(token)
-    // return this.httpClient.get<User>(this.baseUrl + '/auth/checkAuthentication', token)
     if(token){
       return token;
     }
     
+  }
+
+  public isAuthenticated(): boolean {
+    const token = this.getToken();
+    if(token) {
+      return true;
+    }
   }
 
   logout() {
@@ -53,3 +75,4 @@ export class AuthService {
   }
 
 }
+
