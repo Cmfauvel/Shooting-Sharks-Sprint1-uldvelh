@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Book } from '../models/book';
 import { Chapter } from '../models/chapter';
 
@@ -32,7 +33,7 @@ export class BookService {
     }
   ];
 
-  baseUrl: string = "http://localhost:8020/api";
+  baseUrl = `${environment.baseUrl}`;
   constructor(private httpClient: HttpClient) { }
 
   addBook(book: Book) {
