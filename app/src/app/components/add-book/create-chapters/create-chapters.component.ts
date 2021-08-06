@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Book } from 'src/app/models/book';
+import { Chapter } from 'src/app/models/chapter';
+import { BookService } from 'src/app/services/book.service';
 import { ChapterService } from 'src/app/services/chapter.service';
 
 @Component({
@@ -11,14 +14,15 @@ import { ChapterService } from 'src/app/services/chapter.service';
 export class CreateChaptersComponent implements OnInit {
 
   chapterForm:FormGroup;
-  chapters : any[];
-  constructor( private chapterService : ChapterService, private router : Router ) {
+  chapter : Chapter;
+  book:Book;
+  constructor( private chapterService : ChapterService, private router : Router, private bookService: BookService, private route:ActivatedRoute ) {
     this.chapterForm = new FormGroup({})
    }
 
   ngOnInit(): void {
     this.initForm();
-    this.chapters = this.chapterService.chapters.slice();
+    //this.chapters = this.chapterService.chapters.slice();
     //console.log(this.chapters);
     
   }
@@ -26,22 +30,29 @@ export class CreateChaptersComponent implements OnInit {
   initForm(){
     this.chapterForm = new FormGroup ({
       title: new FormControl('', Validators.required),
-      author: new FormControl('', Validators.required),
+      resume: new FormControl('', Validators.required),
+      content: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required)
     })
   }
 
-  addChapters() {
-    this.chapters.push({
-      id: this.chapters.length +1,
-      resume:'',
-      idBook: 0
-    })
-  }
+  //addChapters() {
+  //  this.chapters.push({
+  //    id: this.chapters.length +1,
+  //    resume:'',
+  //    idBook: 0
+  //  })
+  //}
 
   OnSubmit(){
-    console.log(this.chapterForm.value);
-    this.chapterService.create(this.chapterForm.value);
+    this.chapter = this.chapterForm.value;
+    const id: number = this.route.snapshot.params.id;
+    this.bookService.addChapterInBook(id, this.chapter).subscribe(
+      (resp : any) => {
+        console.log(resp);
+        
+      }
+    )
   }
 
 }

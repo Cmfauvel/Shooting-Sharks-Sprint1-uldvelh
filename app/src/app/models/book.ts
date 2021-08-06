@@ -1,5 +1,9 @@
-export interface Book {
+import { Chapter } from "./chapter";
+
+export class Book {
+    id: number;
     title: string;
-    author: string;
     type: string[];
+    chapter: Chapter[];
+    user_id?: number;
 }

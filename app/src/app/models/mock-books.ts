@@ -1,7 +1,7 @@
-import { Book } from './book';
+// import { Book } from './book';
 
-export const Books: Book[] = [{
-    title: "",
-    author: "",
-    type: [""]
-}];
+// export const Books: Book[] = [{
+//     title: "",
+//     author: "",
+//     type: [""]
+// }];

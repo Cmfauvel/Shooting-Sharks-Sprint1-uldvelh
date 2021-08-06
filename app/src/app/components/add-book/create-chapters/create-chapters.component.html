@@ -1,25 +1,20 @@
 <form [formGroup]="chapterForm" (ngSubmit)="OnSubmit()">
-    <div *ngFor="let chapter of chapters">
-        <h2>Chapter {{chapter.id}}</h2>
+    <div>
+        <h2>Rédiger un chapitre</h2>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-    </div>
-    <div class="div-btn">
-        <div class="add-chap">
-            <span class="material-icons" (click)='addChapters()'>
-                add_circle
-            </span>
-            <p>Add chapter</p>
-        </div>
-        <div class="end-story">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    End of story
-                </label>
-            </div>
+            <label for="exampleFormControlTextarea1" class="form-label">Titre du chapitre</label>
+            <input class="form-control" formControlName="title">
+            <label for="exampleFormControlTextarea1" class="form-label">Résumé du chapitre</label>
+            <input class="form-control" formControlName="resume">
+            <label for="exampleFormControlTextarea1" class="form-label">Contenu du chapitre</label>
+            <textarea class="form-control" rows="3" formControlName="content"></textarea>
+
+            <label for="exampleFormControlTextarea1" class="form-label">Positionnement du chapitre</label>
+            <select class="form-select" formControlName="type">
+                <option value="Other" selected>Autre</option>
+                <option value="Start">Début</option>
+                <option value="End">Fin</option>
+            </select>
         </div>
     </div>
     <div class="container">

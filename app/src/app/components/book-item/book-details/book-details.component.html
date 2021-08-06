@@ -1,1 +1,12 @@
-<div class="container-lg">{{ content }}</div>
+<div>
+    <p>{{ book?.id }}</p>
+    <p>{{ book?.title }}</p>
+    <p>{{ book?.type }}</p>
+    <ul>
+        <li *ngFor="let chapter of chapters">
+            <p>{{chapter.id}}</p>
+            <p>{{chapter.content}}</p>
+        </li>
+    </ul>
+</div>
+<button class="btn btn-primary" [routerLink]="['/book', book?.id,'chapter']" routerLinkActive="router-link-active" >Ajouter des chapitres</button>

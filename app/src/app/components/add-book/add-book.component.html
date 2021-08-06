@@ -17,5 +17,13 @@
     </form>
 </div>
 
+<div class="books">
+    <ul>
+        <li *ngFor="let book of bookList">
+            <h1><a [routerLink]="['/book', book.id]" routerLinkActive="router-link-active" >Titre : {{book.title}}</a></h1>
+            <p>Type : {{book.type}}</p>
+            <p>{{book.id}}</p>
+        </li>
+    </ul>
+</div>
 
-<button class="btn btn-primary" routerLink="addchapters">Ajouter des chapitres</button>
