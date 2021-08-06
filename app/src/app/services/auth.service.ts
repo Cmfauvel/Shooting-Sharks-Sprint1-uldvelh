@@ -36,16 +36,9 @@ export class AuthService {
   }
 
   getUserId(){
-   
-
 const helper = new JwtHelperService();
-
 const decodedToken = helper.decodeToken(this.getToken());
-// const expirationDate = helper.getTokenExpirationDate(this.getToken());
-// const isExpired = helper.isTokenExpired(this.getToken());
-console.log(decodedToken);
 const id = parseInt(decodedToken.sub);
-console.log(id)
 return id;
   }
 
@@ -59,7 +52,6 @@ return id;
     if(token){
       return token;
     }
-    
   }
 
   public isAuthenticated(): boolean {

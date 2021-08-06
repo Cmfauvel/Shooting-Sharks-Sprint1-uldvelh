@@ -48,15 +48,12 @@ export class RegisterComponent implements OnInit {
         role: ["USER"],
         password: this.registerForm.value.password
       }
-      this.auth.register(user).subscribe((response) => console.log(response));
+      this.auth.register(user).subscribe((response) => {
+        this.router.navigate(["/login"]);
+        console.log(response)});
     } catch {
       console.log("__Error handled gracefully.")
     }
-
-    // this.auth.register(user).subscribe((response) => {
-    //   console.log(response);
-    // })
-    // this.router.navigate(["/login"]);
   }
 
 

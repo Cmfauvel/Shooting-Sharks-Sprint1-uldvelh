@@ -13,11 +13,15 @@ books;
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
-    // this.books = this.bookService.books.slice();
-    this.bookService.selectAll().subscribe((response) => {
-      this.books = response;
-      console.log(response)
-    })
+    try {
+      this.bookService.selectAll().subscribe((response) => {
+        this.books = response;
+        console.log(response)
+      })
+    }
+    catch {
+      console.log("__Error handled gracefully.")
+    }
   }
 
 }

@@ -12,7 +12,6 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./add-book.component.scss']
 })
 export class AddBookComponent implements OnInit {
-  // currentUser: User;
   currentUserId;
   bookForm?:FormGroup;
   bookList?: Book[];
@@ -25,10 +24,6 @@ export class AddBookComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.currentUserId = this.auth.getUserId();
-    // this.auth.currentUser.subscribe((resp) => {
-    //   console.log(resp)
-    //   this.currentUser = resp;
-    // })
     this.bookService.getBooks().subscribe(
       (books:Array<Book>) => {
         this.bookList = books;
@@ -46,27 +41,32 @@ export class AddBookComponent implements OnInit {
   }
 
   OnSubmit(){
-    const book = {
-      title: this.bookForm.value.title,
-      type: this.bookForm.value.type,
-      user_id: this.currentUserId
-    }
-    console.log(this.bookForm.value);
-    this.bookService.addBook(book).subscribe(
-      (resp: any) => {
-        console.log("Connection succeed", resp);
-        this.bookService.getBooks().subscribe(
-          (books:Array<Book>) => {
-            this.bookList = books;  
-            console.log(this.bookList);
-              
-          }
-        )
-      },
-      (error: any) => {
-        console.log('error while');
+
+    try {
+      const book = {
+        title: this.bookForm.value.title,
+        type: this.bookForm.value.type,
+        user_id: this.currentUserId
       }
-    )
+
+      this.bookService.addBook(book).subscribe(
+        (resp: any) => {
+          this.bookService.getBooks().subscribe(
+            (books:Array<Book>) => {
+              this.bookList = books;   
+              this.router.navigate([`/book/${resp.id}`]);               
+            }
+          )
+        },
+        (error: any) => {
+          console.log('error while');
+        }
+      )
+
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
+    
   }
   
 }

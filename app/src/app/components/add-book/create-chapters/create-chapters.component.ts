@@ -21,10 +21,7 @@ export class CreateChaptersComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.initForm();
-    //this.chapters = this.chapterService.chapters.slice();
-    //console.log(this.chapters);
-    
+    this.initForm();    
   }
 
   initForm(){
@@ -36,23 +33,20 @@ export class CreateChaptersComponent implements OnInit {
     })
   }
 
-  //addChapters() {
-  //  this.chapters.push({
-  //    id: this.chapters.length +1,
-  //    resume:'',
-  //    idBook: 0
-  //  })
-  //}
-
   OnSubmit(){
-    this.chapter = this.chapterForm.value;
-    const id: number = this.route.snapshot.params.id;
-    this.bookService.addChapterInBook(id, this.chapter).subscribe(
-      (resp : any) => {
-        console.log(resp);
-        
-      }
-    )
+    try {
+      this.chapter = this.chapterForm.value;
+      const id: number = this.route.snapshot.params.id;
+      this.bookService.addChapterInBook(id, this.chapter).subscribe(
+        (resp : any) => {
+          console.log(resp);
+          this.router.navigate([`/book/${id}`])
+        }
+      )
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
+    
   }
 
 }
