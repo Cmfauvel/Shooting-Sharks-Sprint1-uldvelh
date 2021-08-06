@@ -23,7 +23,7 @@
           <a class="nav-link" routerLink="/create" *ngIf="!isPlayerMode">Création</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="[currentUser.id]" *ngIf="!isPlayerMode">Mes livres</a>
+          <a class="nav-link" [routerLink]="[currentUserId]" *ngIf="!isPlayerMode">Mes livres</a>
         </li>
         <li class="nav-item" (click)="logout()">
           <span class="material-icons">
