@@ -48,6 +48,10 @@ export class BookService {
     return this.httpClient.get<Book>(`${this.baseUrl}/book/${id}`);
   }
 
+  deleteBookById(id: number) {
+    return this.httpClient.delete<Book>(`${this.baseUrl}/book/${id}`);
+  }
+
   addChapterInBook(id: number, chapter: Chapter) {
     const body = {}
     return this.httpClient.post<Chapter>(`${this.baseUrl}/book/${id}/chapter`, chapter);

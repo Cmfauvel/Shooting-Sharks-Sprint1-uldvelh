@@ -12,20 +12,31 @@ import { ChapterService } from 'src/app/services/chapter.service';
 })
 export class BookDetailsComponent implements OnInit {
 
+  id:number;
   book?:Book;
   chapters:Chapter[];
+  
 
   constructor(private route: ActivatedRoute,
     private bookService: BookService) { }
 
   ngOnInit(): void {
-    const id: number = this.route.snapshot.params.id;
-    this.bookService.getBookById(id).subscribe(
+    this.id = this.route.snapshot.params.id;
+    this.bookService.getBookById(this.id).subscribe(
       (dataBook:Book) => {
         this.book = dataBook;
         this.chapters = dataBook.chapter;
         console.log(dataBook);
         console.log(this.chapters);
+        
+      }
+    )
+  }
+
+  deleteBook(){
+    this.bookService.deleteBookById(this.id).subscribe(
+      (resp:any) => {
+        console.log('livre supprimé');
         
       }
     )
