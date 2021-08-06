@@ -27,6 +27,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { BooksComponent } from './components/books/books.component';
+import { ModifyBookComponent } from './components/book-item/book-details/modify-book/modify-book.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { BooksComponent } from './components/books/books.component';
     RegisterComponent,
     ParamBookComponent,
     BooksComponent,
+    ModifyBookComponent,
   ],
   imports: [
     BrowserModule,

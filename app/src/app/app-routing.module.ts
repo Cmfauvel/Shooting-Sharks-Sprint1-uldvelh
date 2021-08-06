@@ -12,6 +12,7 @@ import { ParamBookComponent } from './components/param-book/param-book.component
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BooksComponent } from './components/books/books.component';
+import { ModifyBookComponent } from './components/book-item/book-details/modify-book/modify-book.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: ':idCreator', component: LibraryOfOneCreatorComponent},
   {path: ':idCreator/:idBook', component: BookItemComponent},
   {path: ':idCreator/:idBook/:idChapter', component: BookDetailsComponent},
+  {path: ':idCreator/:idBook/:idChapter/update', component: ModifyBookComponent},
   {path: 'coin-lecture/:idBook', component: BookItemComponent},
   {path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent}
 ];
