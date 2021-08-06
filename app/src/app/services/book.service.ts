@@ -57,30 +57,17 @@ export class BookService {
     return this.httpClient.post<Chapter>(`${this.baseUrl}/book/${id}/chapter`, chapter);
   }
 
-
-  create(object): Observable<any> {
-    return this.httpClient.post<Book>(this.baseUrl + "/create", object)
+  modify(newValues): Observable<any> {
+    return this.httpClient.put<any>(this.baseUrl + "/book/" + newValues.id, newValues)
   }
 
-  modify(idBook, newValues): Observable<any> {
-    return this.httpClient.put<any>(this.baseUrl + "/" + idBook + "/update", newValues)
-  }
+ 
 
-  select(id): Observable<any> {
-    return this.httpClient.get<any>(this.baseUrl + "/" + id)
-  }
-
-  selectAllByUser(user): Observable<any> {
-    return this.httpClient.get<any>(this.baseUrl + "/" + user)
-  }
 
   selectAll(): Observable<any> {
     return this.httpClient.get<Book>(this.baseUrl);
   }
 
-  selectBooksOfOneCreator(creator): Observable<any> {
-    return this.httpClient.get<any>(this.baseUrl + '/' + creator)
-  }
 
   delete(id): Observable<any> {
     return this.httpClient.delete<any>(this.baseUrl + "/" + id + "/delete")

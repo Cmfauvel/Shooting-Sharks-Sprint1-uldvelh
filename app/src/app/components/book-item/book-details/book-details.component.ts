@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/models/book';
 import { Chapter } from 'src/app/models/chapter';
 import { BookService } from 'src/app/services/book.service';
@@ -18,7 +18,8 @@ export class BookDetailsComponent implements OnInit {
   
 
   constructor(private route: ActivatedRoute,
-    private bookService: BookService) { }
+    private bookService: BookService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;

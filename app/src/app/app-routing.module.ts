@@ -22,17 +22,11 @@ const routes: Routes = [
   {path: 'book', component: BooksComponent,
   children:[
     {path: ':id', component: BookDetailsComponent}, 
+    {path: ':id/update', component: ModifyBookComponent},
     {path: ':id/chapter', component: CreateChaptersComponent},
   ]},
   {path: 'coin-lecture', component: LibraryComponent},
-  {path: 'mybookscreated/:idBook', component: ParamBookComponent},
-  {path: 'hero', component: HeroMakerComponent},
-  {path: ':idCreator', component: LibraryOfOneCreatorComponent},
-  {path: ':idCreator/:idBook', component: BookItemComponent},
-  {path: ':idCreator/:idBook/:idChapter', component: BookDetailsComponent},
-  {path: ':idCreator/:idBook/:idChapter/update', component: ModifyBookComponent},
-  {path: 'coin-lecture/:idBook', component: BookItemComponent},
-  {path: 'coin-lecture/:idBook/:idChapter', component: BookDetailsComponent}
+  {path: 'mybookscreated/:idBook', component: ParamBookComponent}
 ];
 
 @NgModule({

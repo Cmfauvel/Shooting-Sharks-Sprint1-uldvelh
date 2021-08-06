@@ -10,7 +10,7 @@
     </ul>
 
     <div class="edit-delete">
-        <span class="material-icons edit-btn">
+        <span class="material-icons edit-btn" [routerLink]="['/book', book?.id,'update']">
             edit
         </span>
         <span class="material-icons delete-btn" (click)="deleteBook()">
