@@ -8,5 +8,14 @@
             <p>{{chapter.content}}</p>
         </li>
     </ul>
+
+    <div class="edit-delete">
+        <span class="material-icons edit-btn">
+            edit
+        </span>
+        <span class="material-icons delete-btn" (click)="deleteBook()">
+            delete
+        </span>
+    </div>
 </div>
 <button class="btn btn-primary" [routerLink]="['/book', book?.id,'chapter']" routerLinkActive="router-link-active" >Ajouter des chapitres</button>
