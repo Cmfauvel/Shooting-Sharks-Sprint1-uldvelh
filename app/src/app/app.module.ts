@@ -27,6 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { BooksComponent } from './components/books/books.component';
 import { ModifyBookComponent } from './components/book-item/book-details/modify-book/modify-book.component';
+import { ConfirmComponent } from './_helpers/confirm/confirm.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { ModifyBookComponent } from './components/book-item/book-details/modify-
     ParamBookComponent,
     BooksComponent,
     ModifyBookComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { ModifyBookComponent } from './components/book-item/book-details/modify-
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [
     ChapterService,
