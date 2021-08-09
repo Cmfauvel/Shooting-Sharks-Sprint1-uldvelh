@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -58,7 +59,8 @@ chapters = [
     after: []
  }
 ];
-baseUrl : string = "http://localhost:8020/api/book";
+baseUrl = `${environment.baseUrl}/book`;
+
 constructor(private http: HttpClient) { }
 
 create(object): Observable<any> {

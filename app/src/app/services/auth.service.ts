@@ -5,6 +5,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 // import { decode } from 'jwt-decode';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
 @Injectable({
@@ -13,7 +14,7 @@ import { User } from '../models/user';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  baseUrl: string = "http://localhost:8020/api/auth"
+  baseUrl = `${environment.baseUrl}/auth`;
   
   constructor(private httpClient: HttpClient,
     private router: Router) {

@@ -13,21 +13,26 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { BooksComponent } from './components/books/books.component';
 import { ModifyBookComponent } from './components/book-item/book-details/modify-book/modify-book.component';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '', component: HomeComponent},
-  {path: 'create', component: AddBookComponent},
-  {path: 'book', component: BooksComponent,
-  children:[
-    {path: ':id', component: BookDetailsComponent}, 
-    {path: ':id/update', component: ModifyBookComponent},
-    {path: ':id/chapter', component: CreateChaptersComponent},
-  ]},
-  {path: 'coin-lecture', component: LibraryComponent},
-  {path: 'mybookscreated/:idBook', component: ParamBookComponent}
-];
+  { path: 'home', component: HomeComponent },
+  { path: '', canActivate:[AuthGuard], component: BooksComponent, children : [
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'create', component: AddBookComponent},
+    {path: 'book', component: BooksComponent,
+    children:[
+      {path: ':id', component: BookDetailsComponent}, 
+      {path: ':id/update', component: ModifyBookComponent},
+      {path: ':id/chapter', component: CreateChaptersComponent},
+      {path: 'mybookscreated/:idBook', component: ParamBookComponent}
+    ]},
+    {path: 'coin-lecture', component: LibraryComponent}
+  ]}
+]
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
