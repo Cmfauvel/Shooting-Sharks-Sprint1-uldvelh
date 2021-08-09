@@ -13,7 +13,7 @@ currentUserId;
 
   ngOnInit(): void {
   
-   this.currentUserId = this.auth.getUserId();
+   this.currentUserId = this.auth.getUserId();   
   }
 
   switchMode() {

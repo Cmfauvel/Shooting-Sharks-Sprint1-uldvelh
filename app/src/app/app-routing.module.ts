@@ -18,17 +18,18 @@ import { AuthGuard } from 'src/guards/auth.guard';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  { path: '', canActivate:[AuthGuard], component: HomeComponent, children : [
-    { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent },
+  { path: '', canActivate:[AuthGuard], component: BooksComponent, children : [
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'create', component: AddBookComponent},
     {path: 'book', component: BooksComponent,
     children:[
       {path: ':id', component: BookDetailsComponent}, 
       {path: ':id/update', component: ModifyBookComponent},
       {path: ':id/chapter', component: CreateChaptersComponent},
-      {path: 'coin-lecture', component: LibraryComponent},
       {path: 'mybookscreated/:idBook', component: ParamBookComponent}
-    ]}
+    ]},
+    {path: 'coin-lecture', component: LibraryComponent}
   ]}
 ]
 
