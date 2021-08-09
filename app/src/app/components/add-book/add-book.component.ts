@@ -12,7 +12,7 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./add-book.component.scss']
 })
 export class AddBookComponent implements OnInit {
-  currentUserId;
+  currentUserId: number;
   bookForm?:FormGroup;
   bookList?: Book[];
 
@@ -32,7 +32,7 @@ export class AddBookComponent implements OnInit {
     )
   }
 
-  initForm(){
+  initForm(): void{
     this.bookForm = new FormGroup ({
       title: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required)
@@ -40,7 +40,7 @@ export class AddBookComponent implements OnInit {
 
   }
 
-  OnSubmit(){
+  OnSubmit(): void{
 
     try {
       const book = {

@@ -11,9 +11,9 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./modify-book.component.scss']
 })
 export class ModifyBookComponent implements OnInit {
-  currentUserId;
+  currentUserId: number;
   bookForm?:FormGroup;
-  bookId;
+  bookId: number;
 
   constructor(private bookService: BookService, private router : Router,
     private auth: AuthService, private route: ActivatedRoute) {
@@ -22,11 +22,15 @@ export class ModifyBookComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.currentUserId = this.auth.getUserId();
-    this.bookId = this.route.snapshot.params.id;
+    try {
+      this.currentUserId = this.auth.getUserId();
+      this.bookId = this.route.snapshot.params.id;
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
   }
 
-  initForm(){
+  initForm(): void{
     this.bookForm = new FormGroup ({
       title: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required)
@@ -34,7 +38,7 @@ export class ModifyBookComponent implements OnInit {
 
   }
 
-  OnSubmit(){
+  OnSubmit(): void{
 
     try {
       const book = {

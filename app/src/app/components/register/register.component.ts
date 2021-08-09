@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Library } from 'src/app/models/library';
 import { AuthService } from 'src/app/services/auth.service';
-import { LibraryService } from 'src/app/services/library.service';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +16,7 @@ export class RegisterComponent implements OnInit {
   constructor(private auth: AuthService,
     private fb: FormBuilder,
     private router: Router) {
-    // this.registerForm = new FormGroup({});
+
   }
 
   ngOnInit(): void {
@@ -40,7 +38,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     try {
       const user = {
         username: this.registerForm.value.pseudo,
@@ -50,7 +48,7 @@ export class RegisterComponent implements OnInit {
       }
       this.auth.register(user).subscribe((response) => {
         this.router.navigate(["/login"]);
-        console.log(response)});
+      });
     } catch {
       console.log("__Error handled gracefully.")
     }

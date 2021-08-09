@@ -18,7 +18,6 @@ import { CreateChaptersComponent } from './components/add-book/create-chapters/c
 
 import { ChapterService } from './services/chapter.service';
 import { BookService } from './services/book.service';
-import { CreatorService } from './services/creator.service';
 import { HeroMakerComponent } from './components/hero-maker/hero-maker.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { ParamBookComponent } from './components/param-book/param-book.component';
@@ -61,7 +60,6 @@ import { ModifyBookComponent } from './components/book-item/book-details/modify-
   providers: [
     ChapterService,
     BookService,
-    CreatorService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
   ],
   exports: [

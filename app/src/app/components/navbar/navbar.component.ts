@@ -8,20 +8,22 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 isPlayerMode: boolean;
-currentUserId;
+currentUserId: number;
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-  
-   this.currentUserId = this.auth.getUserId();   
+    try {
+      this.currentUserId = this.auth.getUserId();
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
   }
 
-  switchMode() {
-    this.isPlayerMode = !this.isPlayerMode;
-    console.log(this.isPlayerMode)
+  switchMode(): boolean {
+   return this.isPlayerMode = !this.isPlayerMode;
   }
 
-  logout() {
+  logout(): void {
     this.auth.logout();
   }
 
