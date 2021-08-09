@@ -1,14 +1,12 @@
-<div>
-    <p>{{ book?.id }}</p>
-    <p>{{ book?.title }}</p>
-    <p>{{ book?.type }}</p>
-    <ul>
-        <li *ngFor="let chapter of chapters">
-            <p>{{chapter.id}}</p>
-            <p>{{chapter.content}}</p>
-        </li>
-    </ul>
-
+<div class="card" style="width: 18rem;">
+    <img src="../../../../assets/1526996466943.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ book?.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ book?.type }}</h6>
+        <p class="card-text" *ngFor="let chapter of chapters">Chapitre n° {{chapter.id}} : {{chapter.content}}</p>
+        <a [routerLink]="['/book', book?.id,'chapter']" routerLinkActive="router-link-active"
+            class="btn btn-primary">Ajouter des chapitres</a>
+    </div>
     <div class="edit-delete">
         <span class="material-icons edit-btn" [routerLink]="['/book', book?.id,'update']">
             edit
@@ -18,4 +16,3 @@
         </span>
     </div>
 </div>
-<button class="btn btn-primary" [routerLink]="['/book', book?.id,'chapter']" routerLinkActive="router-link-active" >Ajouter des chapitres</button>
