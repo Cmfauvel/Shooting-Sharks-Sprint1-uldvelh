@@ -24,7 +24,7 @@ export class CreateChaptersComponent implements OnInit {
     this.initForm();    
   }
 
-  initForm(){
+  initForm(): void{
     this.chapterForm = new FormGroup ({
       title: new FormControl('', Validators.required),
       resume: new FormControl('', Validators.required),
@@ -33,7 +33,7 @@ export class CreateChaptersComponent implements OnInit {
     })
   }
 
-  OnSubmit(){
+  OnSubmit(): void{
     try {
       this.chapter = this.chapterForm.value;
       const id: number = this.route.snapshot.params.id;

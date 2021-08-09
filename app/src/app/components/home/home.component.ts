@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CreatorService } from 'src/app/services/creator.service';
+import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,16 +8,17 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-creators;
-users;
-  constructor(private creatorService: CreatorService, private userService: UserService) { }
+users: User[];
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.creators = this.creatorService.creators.slice();
-    // this.userService.selectAll().subscribe((response) => {
-    //   this.users = response;
-    // })
-
+    try {
+      this.userService.selectAll().subscribe((resp) => {
+        this.users = resp;
+      })
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
 
   }
 

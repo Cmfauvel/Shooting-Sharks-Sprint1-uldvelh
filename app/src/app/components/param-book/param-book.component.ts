@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Book } from 'src/app/models/book';
+import { Chapter } from 'src/app/models/chapter';
 import { BookService } from 'src/app/services/book.service';
 import { ChapterService } from 'src/app/services/chapter.service';
 
@@ -10,16 +12,17 @@ import { ChapterService } from 'src/app/services/chapter.service';
   styleUrls: ['./param-book.component.scss']
 })
 export class ParamBookComponent implements OnInit {
-  chapters;
-  book;
+  chapters: Chapter[];
+  book: Book;
   closeResult = '';
+  books: Book[];
 
   constructor(private modalService: NgbModal,
     private activatedRoute: ActivatedRoute,
     private chapterService: ChapterService,
     private bookService: BookService) {}
 
-  open(content) {
+  open(content: any): void {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -29,12 +32,18 @@ export class ParamBookComponent implements OnInit {
 
   ngOnInit(): void {
     const idBook = this.activatedRoute.snapshot.params['id'];
-    this.chapters = this.chapterService.chapters.slice();
-    // this.chapterService.selectAll(idBook).subscribe((response) => {
-    //   this.chapters = response;
-    // })
-    const books = this.bookService.books.slice();
-    this.book = books.find(book => book.id == idBook);
+    try {
+      this.chapterService.selectAll(idBook).subscribe((resp) => {
+        this.chapters = resp;
+      })
+      this.bookService.selectAll().subscribe((resp) => {
+        this.books = resp;
+      })
+      this.book = this.books.find(book => book.id == idBook);
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
+    
   }
 
   private getDismissReason(reason: any): string {

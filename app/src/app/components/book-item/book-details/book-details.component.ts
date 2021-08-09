@@ -18,27 +18,30 @@ export class BookDetailsComponent implements OnInit {
   
 
   constructor(private route: ActivatedRoute,
-    private bookService: BookService,
-    private router: Router) { }
+    private bookService: BookService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params.id;
-    this.bookService.getBookById(this.id).subscribe(
-      (dataBook:Book) => {
-        this.book = dataBook;
-        this.chapters = dataBook.chapter;
-        console.log(dataBook);
-        console.log(this.chapters);
-        
-      }
-    )
+    try {
+      this.bookService.getBookById(this.id).subscribe(
+        (dataBook:Book) => {
+          this.book = dataBook;
+          this.chapters = dataBook.chapter;
+          console.log(dataBook);
+          console.log(this.chapters);
+          
+        }
+      )
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
+    
   }
 
-  deleteBook(){
+  deleteBook(): void{
     this.bookService.deleteBookById(this.id).subscribe(
       (resp:any) => {
         console.log('livre supprimé');
-        
       }
     )
   }

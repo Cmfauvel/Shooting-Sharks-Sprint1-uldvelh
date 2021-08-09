@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -32,23 +31,25 @@ loginForm: FormGroup;
     });
   }
 
-  onSubmit() {
-    const user = {
-      email: this.loginForm.value.mail,
-      username: this.loginForm.value.pseudo,
-      password: this.loginForm.value.password,
-    }
-    console.log(user);
-    this.authService.login(user).subscribe(
-      (resp: any) => {
-        console.log("Connection succeed", resp);
-        this.router.navigate(['/']);
-      },
-      error => {
-        console.log('error while');
+  onSubmit(): void{
+    try {
+      const user = {
+        email: this.loginForm.value.mail,
+        username: this.loginForm.value.pseudo,
+        password: this.loginForm.value.password,
       }
-
-    )
+      this.authService.login(user).subscribe(
+        (resp: any) => {
+          console.log("Connection succeed", resp);
+          this.router.navigate(['/']);
+        },
+        error => {
+          console.log('error while :', error);
+        }
+      )
+    } catch {
+      console.log("__Error handled gracefully.")
+    }
   }
 
 }

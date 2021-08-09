@@ -17,7 +17,7 @@ export class HeroMakerComponent implements OnInit {
     
   }
 
-  addHero(){
+  addHero(): void{
     this.heros.push({
       id: this.heros.length +1,
       name: '',
@@ -25,7 +25,7 @@ export class HeroMakerComponent implements OnInit {
     })
   }
 
-  deleteHero(){
+  deleteHero(): void{
     this.heros.pop();
   }
 
